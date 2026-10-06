@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b41mmxten04lj"]
+
+[ext_resource type="Script" uid="uid://daar788nkkcv8" path="res://script/ball.gd" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://dk83fb5t4tuee" path="res://script/player.gd" id="2_v0l8b"]
+[ext_resource type="Script" uid="uid://cmpcm2dn6avaq" path="res://script/bot.gd" id="3_wp4xf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkpy8"]
+size = Vector2(1172, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxkqy"]
+size = Vector2(24, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i241j"]
+size = Vector2(78, 670)
+
+[node name="Main" type="Node2D" unique_id=973019077]
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=620766520]
+position = Vector2(558, 311)
+motion_mode = 1
+script = ExtResource("1_itxqv")
+
+[node name="ColorRect" type="ColorRect" parent="Ball" unique_id=1454420961]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1206996272]
+shape = SubResource("RectangleShape2D_0yc80")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=387068583]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1623198476]
+position = Vector2(576, -40)
+shape = SubResource("RectangleShape2D_wkpy8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2142117249]
+position = Vector2(576, 681)
+shape = SubResource("RectangleShape2D_wkpy8")
+
+[node name="Racket" type="CharacterBody2D" parent="." unique_id=895355425]
+position = Vector2(49, 338)
+motion_mode = 1
+script = ExtResource("2_v0l8b")
+
+[node name="ColorRect" type="ColorRect" parent="Racket" unique_id=1329331252]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -66.0
+offset_right = 12.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Racket" unique_id=1439667360]
+shape = SubResource("RectangleShape2D_lxkqy")
+
+[node name="Bot" type="CharacterBody2D" parent="." unique_id=555686683]
+position = Vector2(1080, 338)
+motion_mode = 1
+script = ExtResource("3_wp4xf")
+
+[node name="ColorRect" type="ColorRect" parent="Bot" unique_id=338991113]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -66.0
+offset_right = 12.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot" unique_id=2053685146]
+shape = SubResource("RectangleShape2D_lxkqy")
+
+[node name="GoalLeft" type="Area2D" parent="." unique_id=1365613521]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLeft" unique_id=386547214]
+position = Vector2(-29, 325)
+shape = SubResource("RectangleShape2D_i241j")
+
+[node name="GoalRight" type="Area2D" parent="." unique_id=1620252622]
+position = Vector2(1207, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalRight" unique_id=399485236]
+position = Vector2(-29, 325)
+shape = SubResource("RectangleShape2D_i241j")

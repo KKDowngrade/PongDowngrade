@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://b41mmxten04lj"]
 
+[ext_resource type="Script" uid="uid://5to41i0x8etv" path="res://script/main.gd" id="1_brvut"]
 [ext_resource type="Script" uid="uid://daar788nkkcv8" path="res://script/ball.gd" id="1_itxqv"]
 [ext_resource type="Script" uid="uid://dk83fb5t4tuee" path="res://script/player.gd" id="2_v0l8b"]
 [ext_resource type="Script" uid="uid://cmpcm2dn6avaq" path="res://script/bot.gd" id="3_wp4xf"]
+[ext_resource type="Theme" uid="uid://ckpkpdi55dcha" path="res://assets/new_theme.tres" id="5_0ha60"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
 
@@ -10,15 +12,19 @@
 size = Vector2(1172, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxkqy"]
-size = Vector2(24, 132)
+size = Vector2(22, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i241j"]
 size = Vector2(78, 670)
 
 [node name="Main" type="Node2D" unique_id=973019077]
+position = Vector2(-1, 0)
+script = ExtResource("1_brvut")
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=620766520]
 position = Vector2(558, 311)
+collision_layer = 8
+collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_itxqv")
 
@@ -38,18 +44,21 @@ grow_vertical = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1206996272]
 shape = SubResource("RectangleShape2D_0yc80")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=387068583]
+[node name="Wall" type="StaticBody2D" parent="." unique_id=387068583]
+collision_mask = 14
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1623198476]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1623198476]
 position = Vector2(576, -40)
 shape = SubResource("RectangleShape2D_wkpy8")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2142117249]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=2142117249]
 position = Vector2(576, 681)
 shape = SubResource("RectangleShape2D_wkpy8")
 
 [node name="Racket" type="CharacterBody2D" parent="." unique_id=895355425]
 position = Vector2(49, 338)
+collision_layer = 2
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("2_v0l8b")
 
@@ -59,18 +68,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -66.0
-offset_right = 12.0
-offset_bottom = 66.0
+offset_left = -11.0
+offset_top = -52.0
+offset_right = 11.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Racket" unique_id=1439667360]
+position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_lxkqy")
 
 [node name="Bot" type="CharacterBody2D" parent="." unique_id=555686683]
 position = Vector2(1080, 338)
+collision_layer = 4
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("3_wp4xf")
 
@@ -81,16 +93,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -12.0
-offset_top = -66.0
-offset_right = 12.0
-offset_bottom = 66.0
+offset_top = -44.0
+offset_right = 10.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bot" unique_id=2053685146]
+position = Vector2(-1, -14)
 shape = SubResource("RectangleShape2D_lxkqy")
 
 [node name="GoalLeft" type="Area2D" parent="." unique_id=1365613521]
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLeft" unique_id=386547214]
 position = Vector2(-29, 325)
@@ -98,7 +112,60 @@ shape = SubResource("RectangleShape2D_i241j")
 
 [node name="GoalRight" type="Area2D" parent="." unique_id=1620252622]
 position = Vector2(1207, 0)
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalRight" unique_id=399485236]
 position = Vector2(-29, 325)
 shape = SubResource("RectangleShape2D_i241j")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1250576657]
+
+[node name="ScoreLabel" type="RichTextLabel" parent="HUD" unique_id=843845830]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 9.0
+offset_right = 87.0
+offset_bottom = 49.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_0ha60")
+bbcode_enabled = true
+text = "BUG
+"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownLabel" type="RichTextLabel" parent="HUD" unique_id=436190341]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_0ha60")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4745098)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 10
+theme_override_font_sizes/normal_font_size = 250
+bbcode_enabled = true
+text = "[rainbow]-1"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="game_started" from="." to="Ball" method="_on_main_game_started"]
+[connection signal="game_waited" from="." to="Ball" method="_on_main_game_waited"]
+[connection signal="body_entered" from="GoalLeft" to="." method="_on_goal_left_body_entered"]
+[connection signal="body_entered" from="GoalRight" to="." method="_on_goal_right_body_entered"]

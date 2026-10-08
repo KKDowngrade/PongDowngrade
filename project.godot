@@ -56,6 +56,13 @@ p2_special={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="environment"
+2d_physics/layer_2="player"
+2d_physics/layer_3="bot"
+2d_physics/layer_4="ball"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

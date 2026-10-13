@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2qrxltna1it8"]
+
+[ext_resource type="AudioStream" uid="uid://cgpth7ek85oic" path="res://assets/TremLoadingloopl.wav" id="1_nr1y7"]
+
+[node name="Soundtrack" type="AudioStreamPlayer" unique_id=1341813086]
+stream = ExtResource("1_nr1y7")
+autoplay = true

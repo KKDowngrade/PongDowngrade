@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="PongDowngrade"
-run/main_scene="uid://b41mmxten04lj"
+run/main_scene="uid://i0prp77yqur8"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Soundtrack="*uid://c2qrxltna1it8"
+GameManager="*uid://bt81pjb6v8up1"
 
 [display]
 

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var ball: CharacterBody2D = $"../Ball"
 
 var direction_y: float = 0
+var is_multiplayer: bool = GameManager.is_multiplayer
 
 func _physics_process(delta: float) -> void:
 	direction_y= sign(ball.global_position.y - global_position.y)

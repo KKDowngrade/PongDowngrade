@@ -8,8 +8,9 @@
 [ext_resource type="Theme" uid="uid://ckpkpdi55dcha" path="res://assets/new_theme.tres" id="5_0ha60"]
 [ext_resource type="AudioStream" uid="uid://yd2xadcaf4l5" path="res://assets/Fail_Sound.sfxr" id="7_p1hux"]
 [ext_resource type="AudioStream" uid="uid://ewabkrgg2e33" path="res://assets/Point_Sound.sfxr" id="8_of57s"]
-[ext_resource type="AudioStream" uid="uid://bxrf202qt7smn" path="res://assets/countdown_number.mp3" id="9_tqoya"]
-[ext_resource type="AudioStream" uid="uid://dxjphdse2pian" path="res://assets/countdown_final.mp3" id="10_k65ib"]
+[ext_resource type="AudioStream" uid="uid://b0m8ec7pkjyqy" path="res://assets/countdown.sfxr" id="9_tqoya"]
+[ext_resource type="AudioStream" uid="uid://cg8lfiv6t810u" path="res://assets/CountDownFinal.sfxr" id="10_k65ib"]
+[ext_resource type="Texture2D" uid="uid://wcda0o5shqoj" path="res://assets/BackGround.png" id="11_k65ib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
 
@@ -24,6 +25,10 @@ size = Vector2(78, 670)
 
 [node name="Main" type="Node2D" unique_id=973019077]
 script = ExtResource("1_brvut")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1410655908]
+position = Vector2(576, 324)
+texture = ExtResource("11_k65ib")
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=620766520]
 position = Vector2(558, 311)

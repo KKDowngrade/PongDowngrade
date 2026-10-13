@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://yd2xadcaf4l5"
+path="res://.godot/imported/Fail_Sound.sfxr-0303124785ac3b3f94fcebb28b1f03e3.sample"
+
+[deps]
+
+source_file="res://assets/Fail_Sound.sfxr"
+dest_files=["res://.godot/imported/Fail_Sound.sfxr-0303124785ac3b3f94fcebb28b1f03e3.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

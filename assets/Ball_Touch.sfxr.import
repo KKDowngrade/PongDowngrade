@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://j0bt5y1bicev"
+path="res://.godot/imported/Ball_Touch.sfxr-a18b6cd564015449a19cf0e7189f8ce1.sample"
+
+[deps]
+
+source_file="res://assets/Ball_Touch.sfxr"
+dest_files=["res://.godot/imported/Ball_Touch.sfxr-a18b6cd564015449a19cf0e7189f8ce1.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

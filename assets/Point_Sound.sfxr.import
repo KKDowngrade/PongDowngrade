@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://ewabkrgg2e33"
+path="res://.godot/imported/Point_Sound.sfxr-9892b14cecd8649026831e9672629298.sample"
+
+[deps]
+
+source_file="res://assets/Point_Sound.sfxr"
+dest_files=["res://.godot/imported/Point_Sound.sfxr-9892b14cecd8649026831e9672629298.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

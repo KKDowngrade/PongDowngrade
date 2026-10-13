@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var ball_touch: AudioStreamPlayer2D = $BallTouch
 
 var speed = 400
 var direction = Vector2(-1, -1).normalized()
@@ -10,6 +11,7 @@ func _physics_process(delta: float) -> void:
 	if get_last_slide_collision() != null:
 		var normal = get_last_slide_collision().get_normal()
 		direction = direction.bounce(normal)
+		ball_touch.play()
 
 
 

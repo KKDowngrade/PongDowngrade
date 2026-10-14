@@ -191,6 +191,7 @@ stream = ExtResource("10_k65ib")
 
 [connection signal="game_started" from="." to="Ball" method="_on_main_game_started"]
 [connection signal="game_started" from="." to="Racket" method="_on_main_game_started"]
+[connection signal="game_started" from="." to="Bot" method="_on_main_game_started"]
 [connection signal="game_waited" from="." to="Ball" method="_on_main_game_waited"]
 [connection signal="body_entered" from="GoalLeft" to="." method="_on_goal_left_body_entered"]
 [connection signal="body_entered" from="GoalRight" to="." method="_on_goal_right_body_entered"]

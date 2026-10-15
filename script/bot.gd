@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 @export var speed: float = 258
-
+@onready var color_rect: ColorRect = $ColorRect
 @onready var ball: CharacterBody2D = $"../Ball"
 
 var direction_y: float = 0
 var is_multiplayer: bool = GameManager.is_multiplayer
 var is_game_started: bool = false
+
 
 func _ready() -> void:
 	if is_multiplayer == false:
@@ -30,3 +31,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_main_game_started() -> void:
 	is_game_started = true
+
+
+func bounce_feedback() -> void:
+	var tween: Tween = create_tween()
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(color_rect, "offset_transform_scale", Vector2.ONE, 0.3).from(Vector2(1.2, 2.0))
+	
